@@ -5,44 +5,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yakina Azza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; padding: 40px; max-width: 700px; margin: auto; background: #f9f9f9; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 24px; margin-top: 30px; }
-    a.button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    :root {
+      --bg-light: #f9f9f9;
+      --bg-dark: #1e1e1e;
+      --text-light: #000;
+      --text-dark: #fff;
+      --card-light: #fff;
+      --card-dark: #2c2c2c;
     }
-    a.button:hover {
-      background-color: #0056b3;
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    body.dark header {
+      background: rgba(30, 30, 30, 0.8);
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      color: inherit;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
     .card {
-      background: white;
-      padding: 30px;
+      background: var(--card-light);
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
+    }
+    body.dark .card {
+      background: var(--card-dark);
+    }
+    .button {
+      background: #007bff;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.875rem;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <header>
     <h1>Yakina Azza</h1>
-    <p><strong>B.S. in Computer Science</strong>, University of Texas at Dallas</p>
-    <p>Email: yakinaazza02@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">linkedin.com/in/yakina-azza</a></p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#linkedin">Experience</a>
+      <button onclick="toggleMode()">🌓</button>
+    </nav>
+  </header>
+  <div class="container">
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>I'm a computer science student at the University of Texas at Dallas with a passion for backend development, AI, and cloud systems. I have experience building efficient APIs and data systems using .NET Core, SQL Server, and React. I'm also a coding instructor and multilingual communicator (fluent in English, Bangla, Urdu, Arabic, and Hindi).</p>
+    </section>
 
-    <h2>Resume</h2>
-    <a href="YakinaAzza_Resume.pdf" download class="button">Download Resume (PDF)</a>
+    <section id="resume" class="card">
+      <h2>Resume</h2>
+      <a href="YakinaAzza_Resume.pdf" download class="button">Download Resume (PDF)</a>
+    </section>
 
-    <h2>About Me</h2>
-    <p>I'm a passionate computer science student focused on backend development, cloud systems, and AI research. 
-    I’ve worked with ASP.NET, SQL Server, and React, building efficient web applications and APIs. 
-    I enjoy building solutions that are both functional and impactful.</p>
+    <section id="linkedin" class="card">
+      <h2>Professional Snapshot</h2>
+      <ul>
+        <li><strong>Backend Developer Intern @ Akij iBos</strong> – .NET Core, SQL Server, REST APIs</li>
+        <li><strong>Coding Instructor @ CS Outreach</strong> – Designed exercises, taught programming</li>
+        <li><strong>Technical Assistant @ Alif International</strong> – Invoicing, Excel, communication</li>
+        <li><strong>Tech Stack</strong>: ASP.NET, Python, C#, SQL, Azure, React, HTML/CSS</li>
+      </ul>
+    </section>
   </div>
+  <footer>
+    © 2025 Yakina Azza. All rights reserved.
+  </footer>
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
