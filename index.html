@@ -9,32 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      background: linear-gradient(-45deg, #14b8a6, #6366f1, #3b82f6, #06b6d4);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      opacity: 0.9;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     .skill-badge {
       display: inline-block;
       padding: 6px 14px;
@@ -164,6 +138,10 @@
       animation: fadeIn 1.2s ease;
     }
     .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
       background: var(--card-dark);
       padding: 2rem;
       border-radius: 12px;
@@ -231,6 +209,7 @@
     <h1>Yakina Azza</h1>
     
     <nav id="nav-links">
+    <h1>Yakina Azza</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#resume">Resume</a>
