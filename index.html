@@ -10,11 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
 
+:root {
+  --start-color: rgba(143, 227, 143, 1);
+  --end-color: rgba(168, 164, 140, 1);
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle, rgba(126, 156, 126, 1) 0%, rgba(145, 168, 199, 1) 100%);
+  background: linear-gradient(180deg, var(--start-color) 0%, var(--end-color) 100%);
+  background-attachment: fixed;
+  background-size: 100% 200%;
   color: #f0f0f0;
+  transition: background 0.3s ease;
 }
 
 header {
@@ -26,9 +34,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: radial-gradient(circle, rgba(126, 156, 126, 0.4) 0%, rgba(145, 168, 199, 0.4) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(90deg, var(--start-color), var(--end-color));
+  transition: background 0.4s ease;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header h1 {
@@ -47,6 +56,11 @@ header nav a {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 14px;
+}
+
+/* Scroll-based transition support */
+html, body {
+  height: 100%;
 }
 
 
@@ -257,7 +271,7 @@ header nav a {
 </header>
   <div class="container">
     <div class="card" style="text-align:center;">
-      <img src="profile.png" alt="Yakina Azza" class="profile-pic">
+      <img src="profile.jpg" alt="Yakina Azza" class="profile-pic">
       <h2>Hello, I'm Yakina Azza</h2>
       <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p><p style="margin-top:1rem;"><a href="YakinaAzza_Resume.pdf" download class="button-minimal">Download My Resume</a></p>
     </div>
@@ -336,3 +350,22 @@ header nav a {
   </footer>
 </body>
 </html>
+<script>
+document.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollFraction = Math.min(scrollTop / docHeight, 1);
+
+  const start = [143, 227, 143];
+  const end = [168, 164, 140];
+
+  const blend = start.map((startVal, i) => {
+    return Math.round(startVal + (end[i] - startVal) * scrollFraction);
+  });
+
+  const blendedColor = `rgb(${blend[0]}, ${blend[1]}, ${blend[2]})`;
+
+  document.documentElement.style.setProperty('--start-color', blendedColor);
+  document.documentElement.style.setProperty('--end-color', blendedColor);
+});
+</script>
