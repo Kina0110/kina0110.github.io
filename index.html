@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,70 +8,150 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --color-1: #184e77;
+      --color-2: #1e6091;
+      --color-3: #1a759f;
+      --color-4: #168aad;
+      --color-5: #34a0a4;
+      --color-6: #52b69a;
+      --text-light: #f8f9fa;
+      --text-dark: #212529;
+    }
 
-:root {
-  --start-color: rgba(143, 227, 143, 1);
-  --end-color: rgba(168, 164, 140, 1);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, var(--start-color) 0%, var(--end-color) 100%);
-  background-attachment: fixed;
-  background-size: 100% 200%;
-  color: #f0f0f0;
-  transition: background 0.3s ease;
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--color-1);
+      color: var(--text-light);
+      transition: background-color 0.5s ease;
+    }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  padding: 0.5rem 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg, var(--start-color), var(--end-color));
-  transition: background 0.4s ease;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+    /* Scroll-based background transition */
+    body.scroll-pos-20 { background-color: var(--color-2); }
+    body.scroll-pos-40 { background-color: var(--color-3); }
+    body.scroll-pos-60 { background-color: var(--color-4); }
+    body.scroll-pos-80 { background-color: var(--color-5); }
+    body.scroll-pos-100 { background-color: var(--color-6); }
 
-header h1 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-  letter-spacing: 0.05em;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
 
-header nav a {
-  margin-left: 1rem;
-}
+    header:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
 
-.card, footer {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 14px;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
 
-/* Scroll-based transition support */
-html, body {
-  height: 100%;
-}
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience-card {
+      padding: 2rem;
+      border-radius: 16px;
+      margin: 2rem 0;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .experience-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .experience-card p {
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .company-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .company-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.05em;
+    }
+
+    header nav a {
+      margin-left: 1rem;
+    }
 
     .skill-badge {
       display: inline-block;
       padding: 6px 14px;
-      background-color: var(--accent);
-      color: #000;
+      margin: 4px;
+      background-color: rgba(144, 164, 174, 0.2);
+      color: var(--text-light);
       border-radius: 20px;
       font-size: 0.9rem;
-      font-weight: 600;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-weight: 500;
+      border: 1px solid rgba(144, 164, 174, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      background-color: rgba(144, 164, 174, 0.3);
+    }
+
+    .project-skills {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .menu-toggle {
@@ -113,7 +192,8 @@ html, body {
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       background: linear-gradient(-45deg, #14b8a6, #6366f1, #3b82f6, #06b6d4);
@@ -122,24 +202,8 @@ html, body {
       z-index: -1;
       opacity: 0.5;
     }
-      background: linear-gradient(120deg, #6366f1, #14b8a6, #3b82f6, #06b6d4);
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #0f2027);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      z-index: -1;
-      opacity: 0.2;
-    }
 
     @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -192,17 +256,6 @@ html, body {
       padding: 0 1rem;
       animation: fadeIn 1.2s ease;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
-      background: var(--card-dark);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-    }
     .button {
       background: var(--primary);
       color: white;
@@ -250,7 +303,154 @@ html, body {
       header { flex-direction: column; align-items: flex-start; }
       nav a { display: block; margin: 0.3rem 0; }
     }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav#nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav#nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav#nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--color-4);
+      transition: width 0.3s ease;
+    }
+
+    nav#nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip:hover::before {
+      content: "3.9";
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--color-1);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .profile-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin: 1rem 0 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .button-primary {
+      background: var(--color-4);
+      color: var(--text-light);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--text-light);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--color-4);
+      transition: all 0.3s ease;
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--color-4);
+      margin-bottom: 2rem;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
+
+  <script>
+    // Scroll-based background transition
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.body.classList.remove('scroll-pos-20', 'scroll-pos-40', 'scroll-pos-60', 'scroll-pos-80', 'scroll-pos-100');
+      
+      if (scrollPercent >= 80) document.body.classList.add('scroll-pos-100');
+      else if (scrollPercent >= 60) document.body.classList.add('scroll-pos-80');
+      else if (scrollPercent >= 40) document.body.classList.add('scroll-pos-60');
+      else if (scrollPercent >= 20) document.body.classList.add('scroll-pos-40');
+      else if (scrollPercent > 0) document.body.classList.add('scroll-pos-20');
+    });
+  </script>
 
   <script>
     function toggleMenu() {
@@ -261,29 +461,56 @@ html, body {
 </head>
 <body>
   <header>
-    <h1>Yakina Azza</h1>
-    
-    <nav id="nav-links">
-    <nav>
-      
-      <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">LinkedIn</a>
-    </nav>
-</header>
-  <div class="container">
-    <div class="card" style="text-align:center;">
-      <img src="profile.jpg" alt="Yakina Azza" class="profile-pic">
-      <h2>Hello, I'm Yakina Azza</h2>
-      <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p><p style="margin-top:1rem;"><a href="YakinaAzza_Resume.pdf" download class="button-minimal">Download My Resume</a></p>
+    <div class="header-content">
+      <nav id="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">LinkedIn</a>
+      </nav>
     </div>
+  </header>
+
+  <div class="container">
+    <section class="hero-section">
+      <div class="profile-content">
+        <img src="profile.png" alt="Yakina Azza" class="profile-pic">
+        <h2>Hello, I'm Yakina Azza</h2>
+        <p class="tagline">A backend developer, an AI enthusiast and a mom of 3 hamsters</p>
+        <div class="cta-buttons">
+          <a href="YakinaAzza_Resume.pdf" download class="button-primary">Download Resume</a>
+          <a href="https://calendar.app.google/yakinaazza02@gmail.com" target="_blank" class="button-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="card">
       <h2>About Me</h2>
-      <p>I'm a computer science student at the University of Texas at Dallas with a passion for backend development, AI, and cloud systems. I have experience building efficient APIs and data systems using .NET Core, SQL Server, and React. I'm also a coding instructor and multilingual communicator (fluent in English, Bangla, Urdu, Arabic, and Hindi).</p>
+      <p>I'm a computer science student at the <span class="tooltip">University of Texas at Dallas</span> who's really into backend development, AI, and cloud systems. I enjoy building things that work behind the scenes—APIs, databases, games.</p>
+      <p>I like thoughtful design, clean logic, and anything that feels like solving a puzzle. I'm not a fan of overcomplicating things just to sound smart—I prefer simple solutions that make sense. If something feels meaningful or creatively challenging, I'm usually all in.</p>
     </section>
 
-    <!-- Resume section removed -->
+    <section id="experience" class="card">
+      <h2>Professional Experience</h2>
       
-      
+      <div class="experience-card">
+        <h3>Backend Developer Intern @ Akij iBos</h3>
+        <p>As a Backend Developer Intern at iBos, I played a crucial role in developing and maintaining robust APIs and microservices. Working with cutting-edge technologies including .NET Core and SQL Server, I contributed to building scalable solutions that power modern business applications.</p>
+        <a href="https://ibos.io/" target="_blank" class="company-link">Visit iBos</a>
+      </div>
+
+      <div class="experience-card">
+        <h3>Technical Assistant @ Alif International</h3>
+        <p>At Alif International, a leading export organization in Bangladesh, I contributed to streamlining business processes through technical solutions. Working with a diverse team, I helped modernize invoicing systems and implement efficient data management practices while gaining valuable experience in international business operations.</p>
+        <a href="https://www.alifgroup.net/international.html" target="_blank" class="company-link">Visit Alif International</a>
+      </div>
+
+      <div class="experience-card">
+        <h3>Coding Instructor @ UTD CS Outreach</h3>
+        <p>As a Coding Instructor at UT Dallas CS Outreach, I helped shape the next generation of programmers by designing and delivering engaging programming exercises. This role allowed me to combine my technical expertise with my passion for education, making complex programming concepts accessible to students of all levels.</p>
+        <a href="https://k12.utdallas.edu/" target="_blank" class="company-link">Visit UTD CS Outreach</a>
+      </div>
     </section>
 
     <section id="linkedin" class="card">
@@ -296,46 +523,148 @@ html, body {
       </ul>
     </section>
 
-    <section id="skills" class="card">
-      <h2>Skills</h2>
-      <ul>
-        <li>Languages: Java, Python, C#, C/C++, JavaScript, Assembly, Prolog</li>
-        <li>Databases: MySQL, SQL Server (SSMS)</li>
-        <li>Web: HTML, CSS, WebAPI (REST & SOAP)</li>
-        <li>Tools: Git, Visual Studio, Postman</li>
-        <li>Cloud & Frameworks: Azure, Spring.NET, ASP.NET, Green Foot</li>
-      </ul>
-    </section>
-
     <section id="projects" class="card">
       <h2>Featured GitHub Projects</h2>
       <div class="project-card">
-        <h3>Online Code Evaluation System</h3>
-        <p>Submit coding assignments and receive automated feedback. Role-based access, secure APIs, and integrated testing system.</p>
-        <a href="#" class="button">View Project</a>
+        <h3>The Software Engineering Lifecycle: CloudBourne</h3>
+        <p>Cloudbourne (CB) is a 2D interactive game built using Java and the Greenfoot framework, where players control a dragon that runs, jumps, and navigates a colorful sky.
+          The game features intuitive arrow key controls for movement, real-time scoring through reward collection and obstacle avoidance, and a level-up system that progressively challenges the player.
+          It demonstrates skills in game design, animation, and interactive programming using Greenfoot and Java.</p>
+        <div class="project-skills">
+          <span class="skill-badge">Java</span>
+          <span class="skill-badge">Greenfoot</span>
+          <span class="skill-badge">Game Design</span>
+          <span class="skill-badge">Object-Oriented Programming</span>
+          <span class="skill-badge">UI/UX Design</span>
+        </div>
+        <a href="https://github.com/UTDClassroomOrg/courseproject-cse3354-003-f24-cse3354-003-f24_group10/wiki" class="button" target="_blank">View Project</a>
       </div>
+
       <div class="project-card">
-        <h3>Inventory Management System</h3>
+        <h3>Order Management System</h3>
         <p>Built with C# and ASP.NET Core for efficient product tracking and sales handling. Tested using Swagger and deployed locally.</p>
-        <a href="#" class="button">View Project</a>
+        <div class="project-skills">
+          <span class="skill-badge">C#</span>
+          <span class="skill-badge">ASP.NET Core</span>
+          <span class="skill-badge">SQL Server</span>
+          <span class="skill-badge">REST APIs</span>
+          <span class="skill-badge">Swagger</span>
+          <span class="skill-badge">System Design</span>
+        </div>
+        <a href="https://github.com/Kina0110/Order-Management-System-API" class="button" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Database Systems</h3>
+        <p>Developed an SQL database for Company ABC covering customer, employee, parts, and sales management.
+          Utilized database design techniques including EER diagrams, relational schema mapping, functional dependency analysis, and normalization.</p>
+        <div class="project-skills">
+          <span class="skill-badge">SQL</span>
+          <span class="skill-badge">Database Design</span>
+          <span class="skill-badge">ERD</span>
+          <span class="skill-badge">Normalization</span>
+          <span class="skill-badge">Data Modeling</span>
+        </div>
+        <a href="https://github.com/Kina0110/Database-project" class="button" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>TCP/UDP Connection</h3>
+        <p>Created a network echo server (echo_s) that supports both TCP and UDP connections, handles multiple clients using processes, and sends client messages to the log server.
+          Developed an echo client (echo_c) to test the echo server and communicate with it using TCP or UDP, depending on the input.
+          Implemented a log server (log_s) to record client messages, timestamps, and IP addresses in a file (echo.log) in the required format, creating logging and operation.</p>
+        <div class="project-skills">
+          <span class="skill-badge">C</span>
+          <span class="skill-badge">Network Programming</span>
+          <span class="skill-badge">TCP/IP</span>
+          <span class="skill-badge">UDP</span>
+          <span class="skill-badge">Multi-threading</span>
+          <span class="skill-badge">System Programming</span>
+        </div>
+        <a href="https://github.com/Kina0110/TCP-UDP" class="button" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>ATM Withdrawal Simulation</h3>
+        <p>Demonstrates multithreaded programming in C using the Pthreads library.
+          It features two versions: a synchronized implementation employing mutex locks to ensure safe concurrent access, and an unsynchronized version highlighting potential race conditions.
+          The project underscores essential skills in thread management, critical section protection, and system-level concurrency control.</p>
+        <div class="project-skills">
+          <span class="skill-badge">C</span>
+          <span class="skill-badge">Pthreads</span>
+          <span class="skill-badge">Concurrent Programming</span>
+          <span class="skill-badge">Synchronization</span>
+          <span class="skill-badge">System Programming</span>
+        </div>
+        <a href="https://github.com/Kina0110/ATM-Withdrawal" class="button" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Catch me if you can: the pacman story</h3>
+        <p>This project underscores core artificial intelligence techniques and strategic problem-solving in game environments. Implements classic search strategies (DFS, BFS, UCS, A*) and heuristics to efficiently navigate maze-like environments in the iconic Pacman game.
+          It features modular Python code that exemplifies advanced algorithm design, heuristic evaluation, and data structure utilization.</p>
+        <div class="project-skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">AI Algorithms</span>
+          <span class="skill-badge">Path Finding</span>
+          <span class="skill-badge">Data Structures</span>
+          <span class="skill-badge">Algorithm Design</span>
+        </div>
+        <a href="https://github.com/Kina0110/Search" class="button" target="_blank">View Project</a>
       </div>
     </section>
 
-    <section id="skills" class="card" style="text-align: center;">
-      <h2>Skills</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 1rem;">
-        <span class="skill-badge">Java</span>
-        <span class="skill-badge">Python</span>
+    <section id="skills" class="card">
+      <h2>Skills Overview</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <!-- Programming Languages -->
         <span class="skill-badge">C#</span>
-        <span class="skill-badge">C/C++</span>
-        <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">SQL</span>
         <span class="skill-badge">ASP.NET</span>
-        <span class="skill-badge">Azure</span>
-        <span class="skill-badge">React</span>
+        <span class="skill-badge">Java</span>
+        <span class="skill-badge">C/C++</span>
+        <span class="skill-badge">Python3</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">Assembly</span>
+        <span class="skill-badge">UNIX</span>
+        <span class="skill-badge">Prolog</span>
+
+        <!-- Databases -->
+        <span class="skill-badge">MySQL</span>
+        <span class="skill-badge">SQL Server (SSMS)</span>
+
+        <!-- Web Technologies -->
+        <span class="skill-badge">HTML</span>
+        <span class="skill-badge">CSS</span>
+        <span class="skill-badge">REST APIs</span>
+        <span class="skill-badge">SOAP</span>
+
+        <!-- Development Tools -->
         <span class="skill-badge">Git</span>
+        <span class="skill-badge">Visual Studio</span>
         <span class="skill-badge">Postman</span>
+
+        <!-- Cloud & Frameworks -->
+        <span class="skill-badge">Azure</span>
+        <span class="skill-badge">Spring.NET</span>
+        <span class="skill-badge">ASP.NET</span>
         <span class="skill-badge">Green Foot</span>
+
+        <!-- Soft Skills -->
+        <span class="skill-badge">Leadership</span>
+        <span class="skill-badge">Team Collaboration</span>
+        <span class="skill-badge">Problem Solving</span>
+        <span class="skill-badge">Communication</span>
+        <span class="skill-badge">Project Management</span>
+        <span class="skill-badge">Conflict Resolution</span>
+        <span class="skill-badge">Time Management</span>
+        <span class="skill-badge">Adaptability</span>
+
+        <!-- Languages -->
+        <span class="skill-badge">English</span>
+        <span class="skill-badge">Bangla</span>
+        <span class="skill-badge">Urdu</span>
+        <span class="skill-badge">Arabic</span>
+        <span class="skill-badge">Hindi</span>
       </div>
     </section>
 
@@ -350,22 +679,3 @@ html, body {
   </footer>
 </body>
 </html>
-<script>
-document.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  const scrollFraction = Math.min(scrollTop / docHeight, 1);
-
-  const start = [143, 227, 143];
-  const end = [168, 164, 140];
-
-  const blend = start.map((startVal, i) => {
-    return Math.round(startVal + (end[i] - startVal) * scrollFraction);
-  });
-
-  const blendedColor = `rgb(${blend[0]}, ${blend[1]}, ${blend[2]})`;
-
-  document.documentElement.style.setProperty('--start-color', blendedColor);
-  document.documentElement.style.setProperty('--end-color', blendedColor);
-});
-</script>
