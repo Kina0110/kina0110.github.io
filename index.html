@@ -9,6 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    .skill-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background-color: var(--accent);
+      color: #000;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
     .menu-toggle {
       display: none;
       background: none;
@@ -193,7 +204,7 @@
     <div class="card" style="text-align:center;">
       <img src="profile.jpg" alt="Yakina Azza" class="profile-pic">
       <h2>Hello, I'm Yakina Azza</h2>
-      <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p>
+      <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p><p style="margin-top:1rem;"><a href="YakinaAzza_Resume.pdf" download class="button-minimal">Download My Resume</a></p>
     </div>
 
     <section id="about" class="card">
@@ -201,9 +212,9 @@
       <p>I'm a computer science student at the University of Texas at Dallas with a passion for backend development, AI, and cloud systems. I have experience building efficient APIs and data systems using .NET Core, SQL Server, and React. I'm also a coding instructor and multilingual communicator (fluent in English, Bangla, Urdu, Arabic, and Hindi).</p>
     </section>
 
-    <section id="resume" class="card">
-      <h2>Resume</h2>
-      <a href="YakinaAzza_Resume.pdf" download class="button-minimal">Resume PDF</a>
+    <!-- Resume section removed -->
+      
+      
     </section>
 
     <section id="linkedin" class="card">
@@ -240,6 +251,25 @@
         <a href="#" class="button">View Project</a>
       </div>
     </section>
+
+    <section id="skills" class="card" style="text-align: center;">
+      <h2>Skills</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 1rem;">
+        <span class="skill-badge">Java</span>
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">C#</span>
+        <span class="skill-badge">C/C++</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">SQL</span>
+        <span class="skill-badge">ASP.NET</span>
+        <span class="skill-badge">Azure</span>
+        <span class="skill-badge">React</span>
+        <span class="skill-badge">Git</span>
+        <span class="skill-badge">Postman</span>
+        <span class="skill-badge">Green Foot</span>
+      </div>
+    </section>
+
   </div>
   <footer>
     © 2025 Yakina Azza. All rights reserved.
