@@ -10,61 +10,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #f9f9f9;
       --bg-dark: #1e1e1e;
-      --text-light: #000;
       --text-dark: #fff;
-      --card-light: #fff;
       --card-dark: #2c2c2c;
+      --primary: #007bff;
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      transition: background 0.3s, color 0.3s;
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
-    body.dark {
       background: var(--bg-dark);
       color: var(--text-dark);
+      transition: background 0.4s, color 0.4s;
     }
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(30, 30, 30, 0.95);
       backdrop-filter: blur(8px);
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    body.dark header {
-      background: rgba(30, 30, 30, 0.8);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
     }
     nav a {
-      margin: 0 1rem;
+      margin: 0.5rem 1rem;
       text-decoration: none;
       font-weight: 600;
       color: inherit;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
+      animation: fadeIn 1.2s ease;
     }
     .card {
-      background: var(--card-light);
+      background: var(--card-dark);
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
     }
-    body.dark .card {
-      background: var(--card-dark);
-    }
     .button {
-      background: #007bff;
+      background: var(--primary);
       color: white;
       padding: 0.6rem 1.2rem;
       border: none;
@@ -72,11 +66,43 @@
       cursor: pointer;
       font-size: 1rem;
       text-decoration: none;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .button:hover {
+      background: #0056b3;
+    }
+    .project-card {
+      padding: 1rem;
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin: 1rem 0;
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      margin-bottom: 1rem;
     }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.875rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav a { display: block; margin: 0.3rem 0; }
     }
   </style>
 </head>
@@ -87,10 +113,18 @@
       <a href="#about">About</a>
       <a href="#resume">Resume</a>
       <a href="#linkedin">Experience</a>
-      <button onclick="toggleMode()">🌓</button>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">LinkedIn</a>
     </nav>
   </header>
   <div class="container">
+    <div class="card" style="text-align:center;">
+      <img src="profile.jpg" alt="Yakina Azza" class="profile-pic">
+      <h2>Hello, I'm Yakina Azza</h2>
+      <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p>
+    </div>
+
     <section id="about" class="card">
       <h2>About Me</h2>
       <p>I'm a computer science student at the University of Texas at Dallas with a passion for backend development, AI, and cloud systems. I have experience building efficient APIs and data systems using .NET Core, SQL Server, and React. I'm also a coding instructor and multilingual communicator (fluent in English, Bangla, Urdu, Arabic, and Hindi).</p>
@@ -110,14 +144,34 @@
         <li><strong>Tech Stack</strong>: ASP.NET, Python, C#, SQL, Azure, React, HTML/CSS</li>
       </ul>
     </section>
+
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <ul>
+        <li>Languages: Java, Python, C#, C/C++, JavaScript, Assembly, Prolog</li>
+        <li>Databases: MySQL, SQL Server (SSMS)</li>
+        <li>Web: HTML, CSS, WebAPI (REST & SOAP)</li>
+        <li>Tools: Git, Visual Studio, Postman</li>
+        <li>Cloud & Frameworks: Azure, Spring.NET, ASP.NET, Green Foot</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Featured GitHub Projects</h2>
+      <div class="project-card">
+        <h3>Online Code Evaluation System</h3>
+        <p>Submit coding assignments and receive automated feedback. Role-based access, secure APIs, and integrated testing system.</p>
+        <a href="#" class="button">View Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Inventory Management System</h3>
+        <p>Built with C# and ASP.NET Core for efficient product tracking and sales handling. Tested using Swagger and deployed locally.</p>
+        <a href="#" class="button">View Project</a>
+      </div>
+    </section>
   </div>
   <footer>
     © 2025 Yakina Azza. All rights reserved.
   </footer>
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
 </body>
 </html>
