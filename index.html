@@ -45,6 +45,7 @@
     }
 
     body::before {
+      background: linear-gradient(-45deg, #6c63ff, #00c9a7, #6c63ff, #0f172a);
       content: "";
       position: fixed;
       top: 0; left: 0;
@@ -64,6 +65,12 @@
     }
 
     :root {
+      --primary: #6c63ff;
+      --accent: #00c9a7;
+      --bg-dark: #0f172a;
+      --text-dark: #f1f5f9;
+      --card-dark: #1e293b;
+
       --bg-dark: #1e1e1e;
       --text-dark: #fff;
       --card-dark: #2c2c2c;
@@ -170,7 +177,7 @@
 <body>
   <header>
     <h1>Yakina Azza</h1>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
     <nav id="nav-links">
     <h1>Yakina Azza</h1>
     <nav>
