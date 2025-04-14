@@ -9,6 +9,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, rgba(14, 165, 233, 0.25), rgba(139, 92, 246, 0.25));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.05em;
+}
+
+header nav a {
+  margin-left: 1rem;
+}
+
+
     .skill-badge {
       display: inline-block;
       padding: 6px 14px;
@@ -210,19 +237,15 @@
     
     <nav id="nav-links">
     <nav>
-      <a href="#about">About</a>
-      <a href="#resume">Resume</a>
-      <a href="#linkedin">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
+      
       <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">LinkedIn</a>
     </nav>
-  </header>
+</header>
   <div class="container">
     <div class="card" style="text-align:center;">
       <img src="profile.jpg" alt="Yakina Azza" class="profile-pic">
       <h2>Hello, I'm Yakina Azza</h2>
-      <p>I love beating up my bf</p><p style="margin-top:1rem;"><a href="YakinaAzza_Resume.pdf" download class="button-minimal">Download My Resume</a></p>
+      <p>A backend developer, cloud enthusiast, and AI learner based in Texas.</p><p style="margin-top:1rem;"><a href="YakinaAzza_Resume.pdf" download class="button-minimal">Download My Resume</a></p>
     </div>
 
     <section id="about" class="card">
