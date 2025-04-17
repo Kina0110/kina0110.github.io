@@ -38,22 +38,6 @@
     body.scroll-pos-80 { background-color: var(--color-5); }
     body.scroll-pos-100 { background-color: var(--color-6); }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      width: 100%;
-      padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    header:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -158,23 +142,59 @@
       display: none;
       background: none;
       border: none;
-      color: var(--text-dark);
+      color: var(--text-light);
       font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
     }
-    @media (max-width: 600px) {
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0.5rem 1rem;
+      }
+
       .menu-toggle {
         display: block;
       }
-      #nav-links {
+
+      nav#nav-links {
         display: none;
-        flex-direction: column;
+        position: fixed;
+        top: 60px; /* Height of header */
+        left: 0;
         width: 100%;
-        margin-top: 1rem;
+        background: rgba(30, 30, 30, 0.95);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
       }
-      #nav-links.show {
+
+      nav#nav-links.show {
         display: flex;
       }
+
+      nav#nav-links a {
+        padding: 0.75rem;
+        text-align: center;
+        color: var(--text-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav#nav-links a:last-child {
+        border-bottom: none;
+      }
+
+      .container {
+        margin-top: 1rem;
+      }
+
+      .hero-section {
+        padding-top: 2rem;
+      }
     }
+
     .button-minimal {
       background: transparent;
       border: 2px solid var(--primary);
@@ -308,7 +328,9 @@
     .header-content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     nav#nav-links {
@@ -362,6 +384,7 @@
     .hero-section {
       text-align: center;
       padding: 4rem 0;
+      padding-top: 2rem;
     }
 
     .profile-content {
@@ -458,21 +481,19 @@
       const nav = document.getElementById('nav-links');
       nav.classList.toggle('show');
     }
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('nav-links');
+        if (nav.classList.contains('show')) {
+          nav.classList.remove('show');
+        }
+      });
+    });
   </script>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <nav id="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="https://www.linkedin.com/in/yakina-azza/" target="_blank">LinkedIn</a>
-      </nav>
-    </div>
-  </header>
-
   <div class="container">
     <section class="hero-section">
       <div class="profile-content">
@@ -538,7 +559,7 @@
           <span class="skill-badge">Object-Oriented Programming</span>
           <span class="skill-badge">UI/UX Design</span>
         </div>
-        <a href="https://github.com/UTDClassroomOrg/courseproject-cse3354-003-f24-cse3354-003-f24_group10/wiki" class="button" target="_blank">View Project</a>
+        <a href="https://github.com/UTDClassroomOrg/assignment-1-introduction-to-github-cse3354-003-f24-Kina0110/wiki" class="button" target="_blank">View Project</a>
       </div>
 
       <div class="project-card">
